@@ -1,20 +1,58 @@
 import socket
+import logging
+import os
+"""
+Server Project-
+Made: 2025
+By: Omer Attia
 
+This is the client side program it has its own log and will ensure no unkown
+ commands are inputted into the server. Also ensures the client disconnects properly\
+ log file: clients.log
+"""
 MAX_PACKET = 1024
-my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-try:
-    my_socket.connect(('127.0.0.1', 8820))
+SERVER_IP = '127.0.0.1'
+SERVER_PORT = 8820
+LOG_FILE = os.path.join(os.path.dirname(__file__), 'clients.log')
+logging.basicConfig(
+    filename=LOG_FILE,
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
-    while True:
-        print("Please insert the following commands: TIME, RAND, NAME, EXIT")
-        X = input()
-        my_socket.send(X.encode())
-        response = my_socket.recv(MAX_PACKET).decode()
-        if X == "EXIT":
-            my_socket.close()
-            break
-        print(response)
-except socket.error as err:
-    print('received socket error ' + str(err))
-finally:
-    my_socket.close()
+def main():
+    logging.info("Client started")
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    try:
+        client_socket.connect((SERVER_IP, SERVER_PORT))
+        logging.info("Client connected to server" + SERVER_IP + ":" + str(SERVER_PORT))
+
+        while True:
+            cmd = input("Enter command: (TIME, NAME, RAND, EXIT): ").strip().upper()
+            if not cmd:
+                print("Empty command, please try again.")
+                logging.warning("Empty command.")
+                continue
+
+            assert len(cmd) <= 4, f"Command '{cmd}' is too long. Max length is 4 characters."
+            client_socket.send(cmd.encode())
+            data = b""
+
+
+            response = client_socket.recv(MAX_PACKET).decode()
+            print("Server:" + response)
+            logging.info(response)
+
+            if cmd == "EXIT":
+                logging.info("Server exited.")
+                break
+    except AssertionError as e:
+        logging.error(e)
+    except socket.error as err:
+        logging.error(err)
+    finally:
+        client_socket.close()
+if __name__ == "__main__":
+    main()
+
