@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="034ff8d1-b91b-48c7-b154-e10d2c024366" name="Changes" comment="Revamped the entire project due to multiple issues.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="034ff8d1-b91b-48c7-b154-e10d2c024366" name="Changes" comment="Revamped the entire project due to multiple issues." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +131,7 @@
       <workItem from="1761931339712" duration="150000" />
       <workItem from="1761933666789" duration="2058000" />
       <workItem from="1761935748361" duration="2119000" />
-      <workItem from="1762016412072" duration="1477000" />
+      <workItem from="1762016412072" duration="1887000" />
     </task>
     <task id="LOCAL-00001" summary="Inital commit">
       <option name="closed" value="true" />
@@ -159,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762016445392</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Revamped the entire project due to multiple issues.">
+      <option name="closed" value="true" />
+      <created>1762018173406</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762018173406</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

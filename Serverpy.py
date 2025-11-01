@@ -32,7 +32,12 @@ logging.basicConfig(
 
 
 def handle_command(command: str) -> str:
-    """Processes the 4 byte command and returns the appropriate response"""
+    """
+       Takes the clients input(command) and compares it to existing responses RAND, TIME, ETC.
+       then it returns the adjacent response.
+       :param command: The client's input as a string.
+       :return: The adjacent response as a string.
+       """
     assert isinstance(command, str),"Command must be a string"
     assert len(command) <= 4, "Command must be equal or less then 4 letters"
     if command == 'TIME':
