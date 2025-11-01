@@ -54,7 +54,7 @@ def handle_command(command: str) -> str:
         logging.info('Sent random number between 1 and 10')
         return str(num)
     else:
-        logging.error('Unknown command received: {command}')
+        logging.error('Unknown command received: ' + command)
         return "Unknown command"
 
 
