@@ -34,7 +34,7 @@ logging.basicConfig(
 def handle_command(command: str) -> str:
     """Processes the 4 byte command and returns the appropriate response"""
     assert isinstance(command, str),"Command must be a string"
-    assert len(command) <= 4, "Command must be less then 4 letters"
+    assert len(command) <= 4, "Command must be equal or less then 4 letters"
     if command == 'TIME':
         logging.info('Sent local time')
         return datetime.now().strftime("%H:%M:%S")
