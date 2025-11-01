@@ -52,6 +52,8 @@ def handle_command(command: str) -> str:
         logging.error('Unknown command received: {command}')
         return "Unknown command"
 
+
+
 def main():
     logging.info('Server started')
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -91,7 +93,3 @@ def main():
         logging.info('Server closed')
 if __name__ == "__main__":
     main()
-
-
-
-
