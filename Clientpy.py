@@ -37,7 +37,6 @@ def main():
 
             assert len(cmd) <= 4, f"Command '{cmd}' is too long. Max length is 4 characters."
             client_socket.send(cmd.encode())
-            data = b""
 
 
             response = client_socket.recv(MAX_PACKET).decode()

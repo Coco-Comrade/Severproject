@@ -9,14 +9,14 @@ Made: 2025
 By: Omer Attia
 
 This program opens a TCP server waits for a client and only allows up to 4 byte words to enter.
-The server will have 4 outputs availble:
+The server will have 4 outputs available:
 1. Current time
 2.  random number
 3. The name of the device the server is hosted on
 4. A command that allows the client to disconnect from the server
 All logs will be put in 'serverpys.log'
 """
-SERVER_NAME = socket.gethostname()
+SERVER_NAME = socket.gethostname() #I made it so the server sent the host device name. I did this because it felt right and cooler hope you like it!!!! :)
 IP = "0.0.0.0"
 PORT = 8820
 QUEUE_LEN = 1
@@ -85,7 +85,6 @@ def main():
                         response = handle_command(data)
                         client_socket.send(response.encode())
                     except AssertionError as e:
-                        response = str(e)
                         logging.error(f"Exception raised: {e}")
 
                     if data == 'EXIT':
